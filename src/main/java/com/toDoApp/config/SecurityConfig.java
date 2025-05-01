@@ -4,7 +4,6 @@ package com.toDoApp.config;
 
 
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -15,8 +14,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import java.util.Arrays;
-
 
 @Configuration
 @EnableWebSecurity
@@ -25,7 +22,13 @@ public class SecurityConfig {
     private static final String[] WHITE_LIST_URL = {
             "/api/authenticate",
             "/api/register",
-            "/api/auth/**"
+            "/api/auth/**",
+            "/swagger-ui/**",
+            "/v3/api-docs/**",
+            "/swagger-ui.html",
+            "/webjars/**",
+            "/api-docs/**",
+            "/swagger-ui/config/**"
     };
 
     private final JwtAuthenticationFilter jwtAuthFilter;
